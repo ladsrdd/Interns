@@ -1,0 +1,205 @@
+ html{
+  height: 100%; 
+ }
+#login-error-msg-holder {
+  width: 100%;
+  height: 100%;
+  display: grid;
+  justify-items: center;
+  align-items: center;
+}
+
+
+#login-form {
+  align-self: flex-start;
+  display:flex;
+  justify-items: center;
+  align-items: center;
+}
+
+.login-form-field::placeholder {
+  color: #3a3a3a;
+}
+
+.login-form-field {
+  border: none;
+  border-bottom: 1px solid #3a3a3a;
+  margin-bottom: 10px;
+  border-radius: 3px;
+  outline: none;
+  padding: 0px 0px 5px 5px;
+}
+
+#login-form-submit {
+  width: 100%;
+  margin-top: 10%;
+  padding: 7px;
+  border: none;
+  border-radius: 5px;
+  color: white;
+  font-weight: bold;
+  background-color: #514d4d;
+  cursor: pointer;
+  outline: none;
+  
+}
+#login-header {
+  text-align:  center;
+  margin-bottom: 20%;
+  color: #797676;
+  font-size: 200%;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+
+#main-holder {
+  margin-top: 5%; /* Adjust the margin-top as needed to position the box */
+  width: 70%; /* Adjust the width as needed */
+  max-width: 500px; /* Adjust the max-width to set a limit on the box's size */
+  padding: 80px; /* Adjust the padding to increase the box size */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: white;
+  border-radius: 7px;
+  box-shadow: 0px 0px 5px 2px rgb(55, 92, 90);
+}
+
+#page-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: white;
+}
+
+.error {
+	background-color: #FEE;
+	border: 1px solid #EDD;
+	color: #A66;
+  }  
+  .alert {
+    position: absolute;
+    top: 18%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 300px;
+    height: 100px;
+    padding: 20px;
+    margin: 0;
+    line-height: 1.8;
+    border-radius: 10px;
+    cursor: pointer;
+    font-family: sans-serif;
+    font-weight: 400;
+    background-color: #FEE;
+    font-size: 16px;
+    transition: background-color 0.3s, color 0.3s; /* Add transition for smooth hover effect */
+  }
+  
+  .alert:hover {
+    background-color: rgba(160, 155, 155, 0.096); /* Change background color on hover */
+    color: #222222; /* Change text color on hover */
+  }
+  
+  .alertCheckbox {
+    display: none;
+  }
+  
+  :checked + .alert {
+    display: none;
+  }
+  
+  .alertText {
+    text-align: center;
+  }
+  
+  .alertClose {
+    float: right;
+    padding-top: 5px;
+    font-size: 10px;
+  }
+  
+  .clear {
+    clear: both;
+  }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*
+
+
+
+  <?php
+
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    $username = $_POST['username'];
+    $password = $_POST['password'];
+
+    if (empty($username) || empty($password)) {
+        echo '<label>
+        <input type="checkbox" class="alertCheckbox" autocomplete="off" />
+        <div class="alert error">
+          <span class="alertClose">X</span>
+          <span class="alertText">Veuillez remplir tous les champs.
+              <br class="clear"/></span>
+        </div>
+      </label>';
+    } else {
+        $conn = new mysqli('localhost', 'root', '', 'datab');
+        if ($conn->connect_errno) {
+            die('connection failed:' . $conn->connect_error);
+        } else {
+            $username = $conn->real_escape_string($username);
+
+            // Query the database to check if the user exists
+            $query = "SELECT * FROM user WHERE username='$username'";
+            $result = $conn->query($query);
+
+            if ($result->num_rows === 1) {
+                $row = $result->fetch_assoc();
+        
+                if (password_verify($password, $row['password'])) {
+                    header('Location: page.html');
+                } else {
+                    echo '<label>
+                    <input type="checkbox" class="alertCheckbox" autocomplete="off" />
+                    <div class="alert error">
+                      <span class="alertClose">X</span>
+                      <span class="alertText">Nom d\'utilisateur ou mot de passe invalide.
+                          <br class="clear"/></span>
+                    </div>
+                  </label>';
+                }
+            } else {
+                echo '<label>
+                <input type="checkbox" class="alertCheckbox" autocomplete="off" />
+                <div class="alert error">
+                  <span class="alertClose">X</span>
+                  <span class="alertText">Nom d\'utilisateur ou mot de passe invalide.
+                      <br class="clear"/></span>
+                </div>
+              </label>';
+            }
+            // Close the database connection
+            $conn->close();
+        }
+    }
+}
+?>
+
+<?php require 'sign.html'; ?>
+/*

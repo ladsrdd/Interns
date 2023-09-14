@@ -1,0 +1,36 @@
+.table{
+    margin-top: 15%;
+}
+#voir {
+    color: blue; 
+    text-decoration: underline; 
+    font-size: small;
+  }
+  
+
+  .search input[type=text]{
+    width:200px;
+    height:40px;
+   
+}
+     
+.search{
+    float:right;
+    margin:7px;
+    margin-top: 100px;
+    margin-right: 200px;
+}
+     
+.search button{
+    background-color: #0074D9;
+    color: #f2f2f2;
+    float: right;
+    width: 40px;
+    height: 40px;
+    padding: 5px 10px;
+    margin-right: 16px;
+    font-size: 12px;
+    border: none;
+    cursor: pointer;
+}
+
